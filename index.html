@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SparkleClean | Professional Cleaning Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #4CAF50;
+            --primary-dark: #3e8e41;
+            --secondary: #2196F3;
+            --light: #f8f9fa;
+            --dark: #212529;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f5f5;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.9) 0%, rgba(33, 150, 243, 0.9) 100%);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .package-card {
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .package-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(76, 175, 80, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .before-after-slider {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        
+        .before-image, .after-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .slider-handle {
+            position: absolute;
+            width: 4px;
+            height: 100%;
+            background: white;
+            left: 50%;
+            cursor: ew-resize;
+            z-index: 10;
+        }
+        
+        .slider-handle::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-1">
+                    <img src="https://placehold.co/40x40" alt="SparkleClean logo - a sparkling water droplet with cleaning bubbles" class="h-10 w-10 rounded-full">
+                    <span class="text-xl font-semibold text-gray-800">SparkleClean</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-800 hover:text-green-500 transition">Home</a>
+                    <a href="#services" class="text-gray-800 hover:text-green-500 transition">Services</a>
+                    <a href="#pricing" class="text-gray-800 hover:text-green-500 transition">Pricing</a>
+                    <a href="#about" class="text-gray-800 hover:text-green-500 transition">About</a>
+                    <a href="#contact" class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition">Book Now</a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button class="outline-none mobile-menu-button">
+                        <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile menu -->
+            <div class="hidden mobile-menu">
+                <a href="#home" class="block px-2 py-2 text-sm hover:bg-gray-100">Home</a>
+                <a href="#services" class="block px-2 py-2 text-sm hover:bg-gray-100">Services</a>
+                <a href="#pricing" class="block px-2 py-2 text-sm hover:bg-gray-100">Pricing</a>
+                <a href="#about" class="block px-2 py-2 text-sm hover:bg-gray-100">About</a>
+                <a href="#contact" class="block px-2 py-2 text-sm hover:bg-gray-100">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient text-white py-20">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">Professional Cleaning Services for Your Home & Office</h1>
+                <p class="text-lg mb-8 text-white/90 leading-relaxed">Experience the sparkle with our eco-friendly cleaning solutions tailored to your needs. We bring freshness to every corner of your space.</p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#contact" class="px-8 py-3 bg-white text-green-600 rounded-lg font-medium hover:bg-gray-100 transition text-center">Get Free Quote</a>
+                    <a href="#services" class="px-8 py-3 border-2 border-white text-white rounded-lg font-medium hover:bg-white hover:text-green-600 transition text-center">Our Services</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative w-full max-w-md">
+                    <div class="before-after-slider">
+                        <img src="https://placehold.co/600x400" alt="Messy living room with scattered items before cleaning service" class="before-image">
+                        <img src="https://placehold.co/600x400" alt="Clean and organized living room after SparkleClean service" class="after-image">
+                        <div class="slider-handle"></div>
+                    </div>
+                    <div class="flex justify-between mt-2">
+                        <span class="text-sm font-medium">Before</span>
+                        <span class="text-sm font-medium">After</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="bg-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="p-6">
+                    <h3 class="text-3xl font-bold text-green-500 mb-2">2,500+</h3>
+                    <p class="text-gray-600">Happy Clients</p>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-3xl font-bold text-green-500 mb-2">98%</h3>
+                    <p class="text-gray-600">Satisfaction Rate</p>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-3xl font-bold text-green-500 mb-2">50+</h3>
+                    <p class="text-gray-600">Professional Staff</p>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-3xl font-bold text-green-500 mb-2">24/7</h3>
+                    <p class="text-gray-600">Support Available</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Our Professional Cleaning Services</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">We offer a comprehensive range of cleaning services to meet all your needs, using eco-friendly products and innovative techniques.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-white p-8 rounded-lg shadow-md transition cursor-pointer">
+                    <div class="feature-icon mb-6 text-green-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 12h18M12 3v18M7.8 7.8l8.4 8.4M16.2 7.8l-8.4 8.4"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Residential Cleaning</h3>
+                    <p class="text-gray-600 mb-4">Complete home cleaning including dusting, vacuuming, mopping, kitchen and bathroom sanitization.</p>
+                    <ul class="space-y-2 mb-4">
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Regular Maintenance
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Deep Cleaning Options
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Customizable Plans
+                        </li>
+                    </ul>
+                    <a href="#contact" class="text-green-500 font-medium inline-flex items-center">
+                        Learn More
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-white p-8 rounded-lg shadow-md transition cursor-pointer">
+                    <div class="feature-icon mb-6 text-green-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M2 8h20M10 8v6"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Commercial Cleaning</h3>
+                    <p class="text-gray-600 mb-4">Customized cleaning solutions for offices, retail spaces, and commercial properties.</p>
+                    <ul class="space-y-2 mb-4">
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Daily/Weekly Scheduling
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            High-Traffic Area Focus
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            After-Hours Service
+                        </li>
+                    </ul>
+                    <a href="#contact" class="text-green-500 font-medium inline-flex items-center">
+                        Learn More
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-white p-8 rounded-lg shadow-md transition cursor-pointer">
+                    <div class="feature-icon mb-6 text-green-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 7v14H4V7M8 3v4M16 3v4M2 7h20M14 11h-4M10 15h4M12 11v4"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Specialized Cleaning</h3>
+                    <p class="text-gray-600 mb-4">Premium services including move-in/move-out cleaning, post-construction cleanup, and more.</p>
+                    <ul class="space-y-2 mb-4">
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Detailed Checklist
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Industrial Equipment
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Satisfaction Guarantee
+                        </li>
+                    </ul>
+                    <a href="#contact" class="text-green-500 font-medium inline-flex items-center">
+                        Learn More
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI-Generated Pricing Plans -->
+    <section id="pricing" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Flexible Cleaning Plans</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Choose the perfect cleaning package designed by our AI based on thousands of customer preferences.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Basic Plan -->
+                <div class="package-card bg-gray-50 border border-gray-200">
+                    <div class="p-8 text-center">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">Essentials</h3>
+                        <div class="mb-6">
+                            <span class="text-4xl font-bold text-green-500">$99</span>
+                            <span class="text-gray-600">/month</span>
+                        </div>
+                        <p class="text-gray-600 mb-6">Perfect for small apartments or occasional deep cleaning.</p>
+                        <a href="#contact" class="block px-6 py-3 bg-gray-200 text-gray-800 rounded-lg font-medium hover:bg-gray-300 transition">Get Started</a>
+                    </div>
+                    <div class="border-t border-gray-200 p-8 bg-white">
+                        <h4 class="text-lg font-semibold mb-4 text-gray-800">What's Included:</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start text-gray-600">
+                                <svg class="w-5 h-5 mt-0.5 mr-2 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Weekly maintenance cleaning (2x/month)
+                            </li>
+                            <li class="flex items-start text-gray-600">
+                                <svg class="w-5 h-5 mt-0.5 mr-2 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                1 bathroom included
+                            </li>
+                            <li class="flex items-start text-gray-600">
+                                <svg class="w-5 h-5 mt-0.5 mr-2 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Kitchen surface cleaning
+                            </li>
+                            <li class="flex items-start text-gray-600">
+                                <svg class="w-5 h-5 mt-0.5 mr-2 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Vacuuming & mopping
+                            </li>
+                            <li class="flex items-start text-gray-600">
+                                <svg class="w-5 h-5 mt-0.5 mr-2 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                                <span class="text-gray-400">Window cleaning</span>
+                            </li>
+                            <li class="flex items-start text-gray-600">
+                                <svg class="w-5 h-5 mt-0.5 mr-2 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                                <span class="text-gray-400">Fridge cleaning</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Standard Plan (Featured) -->
+                <div class="package-card bg-gradient-to-br from-green-50 to-blue-50 border border-green-200 transform scale-105">
+                    <div class="p-8 text-center">
+                        <div class="relative">
+                            <span class="absolute -top-8 -right-8 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full transform rotate-12">Most Popular</span>
+                            <h3 class="text-2xl font-bold mb-4 text-gray-800">Premium</h3>
+                            <div class="mb-6">
+                                <span class="text-4xl font-bold text-green-500">$199</span>
+                                <span class="text-gray-600">/month</span>
+                            </div>
+                            <p class="text-gray-600 mb-6">Best value for medium-sized homes needing regular cleaning.</p>
+                            <a href="#contact" class="block px-6 py-3 bg-green-500 text-white rounded-lg font-medium hover:bg-green-600 transition">Get Started</a>
+                        </div>
+                    </div>
+                    <div class="border-t border-green-200 p-8 bg-white">
+                        <h4 class="text-lg font-semibold mb-4 text-gray-800">What's Included:</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start text-gray-600">
+                                <svg class="w-5 h-5 mt-0.5 mr-2 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Weekly deep cleaning (4x/month)
+                            </li>
+                            <li class="flex items-start text-gray-600">
+                                <svg class="w-5 h-5 mt-0.5 mr-2 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Up to 3 bathrooms included
+                            </li>
+                            <li class="flex items-start text-gray-600">
+                                <svg class="w-5 h-5 mt-0.5 mr-2 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Complete kitchen deep clean
+                            </li>
+                            <li class="flex items-start text-gray-600">
+                                <svg class="w-5 h-5 mt-0.5 mr-2 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Interior window cleaning
+                            </li>
+                            <li class="flex items-start text-gray-600">
+                                <svg class="w-5 h-5 mt-0.5 mr-2 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Appliance exterior cleaning
+                            </li>
+                            <li class="flex items-start text-gray-600">
+                                <svg class="w-5 h-5 mt-0.5 mr-2 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Eco-friendly products
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Premium Plan -->
+                <div class="package-card bg-gray-50 border border-gray-200">
+                    <div class="p-8 text-center">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">Elite</h3>
+                        <div class="mb-6">
+                            <span class="text-4xl font-bold text-green-500">$349</span>
+                            <span class="text-gray-600">/month</span>
+                        </div>
+                        <p class="text-gray-600 mb-6">Comprehensive cleaning solution for large homes & estates.</p>
+                        <a href="#contact" class="block px-6 py-3 bg-gray-200 text-gray-800 rounded-lg font-medium hover:bg-gray-300 transition">Get Started</a>
+                    </div>
+                    <div class="border-t border-gray-200 p-8 bg-white">
+                        <h4 class="text-lg font-semibold mb-4 text-gray-800">What's Included:</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start text-gray-600">
+                                <svg class="w-5 h-5 mt-0.5 mr-2 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Unlimited cleanings (up to 8/month)
+                            </li>
+                            <li class="flex items-start text-gray-600">
+                                <svg class="w-5 h-5 mt-0.5 mr-2 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                All bathrooms included
+                            </li>
+                            <li class="flex items-start text-gray-600">
+                                <svg class="w-5 h-5 mt-0.5 mr-2 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Full appliance cleaning
+                            </li>
+                            <li class="flex items-start text-gray-600">
+                                <svg class="w-5 h-5 mt-0.5 mr-2 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Window washing (interior)
+                            </li>
+                            <li class="flex items-start text-gray-600">
+                                <svg class="w-5 h-5 mt-0.5 mr-2 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Priority scheduling
+                            </li>
+                            <li class="flex items-start text-gray-600">
+                                <svg class="w-5 h-5 mt-0.5 mr-2 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Dedicated cleaning team
+                            </li>
+                            <li class="flex items-start text-gray-600">
+                                <svg class="w-5 h-5 mt-0.5 mr-2 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Free carpet spot treatment
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <div class="inline-block px-6 py-3 bg-white border border-gray-200 rounded-lg shadow-sm">
+                    <p class="text-gray-600">Need a custom solution? <a href="#contact" class="text-green-500 font-medium hover:underline">Contact us</a> for personalized cleaning plans.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Why Choose SparkleClean?</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">We're committed to delivering exceptional cleaning services with a focus on quality, reliability, and environmental responsibility.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-sm">
+                    <div class="feature-icon mb-6 text-green-500 mx-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-center text-gray-800">Eco-Friendly Products</h3>
+                    <p class="text-gray-600 text-center">We use only biodegradable, non-toxic cleaning products that are safe for your family, pets, and the environment.</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-sm">
+                    <div class="feature-icon mb-6 text-green-500 mx-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-center text-gray-800">Certified Professionals</h3>
+                    <p class="text-gray-600 text-center">Our cleaning staff undergoes rigorous background checks and training to ensure premium service quality.</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-sm">
+                    <div class="feature-icon mb-6 text-green-500 mx-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-center text-gray-800">Satisfaction Guaranteed</h3>
+                    <p class="text-gray-600 text-center">We won't leave until you're completely satisfied with every sparkling inch of your home.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">What Our Clients Say</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Don't just take our word for it - here's what our customers have to say about their experience.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <img src="https://placehold.co/80x80" alt="Sarah Johnson - smiling middle-aged woman" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Sarah Johnson</h4>
+                            <div class="flex items-center">
+                                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.799-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.799-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.799-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.799-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.799-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"SparkleClean transformed our home! The team is professional, thorough, and uses amazing-smelling eco-friendly products. I love coming home to a spotless house every week."</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <img src="https://placehold.co/80x80" alt="Michael Rodriguez - business professional with glasses" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Michael Rodriguez</h4>
+                            <div class="flex items-center">
+                                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.799-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.799-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.799-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.799-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.799-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"As a busy executive, I don't have time to clean. SparkleClean's office service is impeccable - they know exactly how to handle sensitive documents while keeping everything spotless."</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <img src="https://placehold.co/80x80" alt="Jennifer & David Lewis - smiling middle-aged couple" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Jennifer & David Lewis</h4>
+                            <div class="flex items-center">
+                                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.799-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.799-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.799-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.799-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.799-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"We hired SparkleClean after our remodel left dust everywhere. Their post-construction cleaning was incredible - you'd never know our house was a work zone! Now we have them come monthly."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact" class="py-20 bg-green-500 text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold mb-4">Ready to Experience the Sparkle?</h2>
+                    <p class="max-w-2xl mx-auto text-white/90">Get your free quote today and discover the difference professional cleaning can make.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-lg shadow-lg p-8">
+                        <h3 class="text-2xl font-bold mb-6 text-gray-800">Contact Us</h3>
+                        <form>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 mb-2" for="name">Name</label>
+                                <input class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" type="text" id="name" placeholder="Your name">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 mb-2" for="email">Email</label>
+                                <input class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" type="email" id="email" placeholder="Your email">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 mb-2" for="phone">Phone</label>
+                                <input class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" type="tel" id="phone" placeholder="Your phone number">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 mb-2" for="service">Service Needed</label>
+                                <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" id="service">
+                                    <option>Select a service</option>
+                                    <option>Residential Cleaning</option>
+                                    <option>Commercial Cleaning</option>
+                                    <option>Specialized Cleaning</option>
+                                    <option>Move In/Out Cleaning</option>
+                                    <option>Custom Plan</option>
+                                </select>
+                            </div>
+                            <div class="mb-6">
+                                <label class="block text-gray-700 mb-2" for="message">Message</label>
+                                <textarea class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" id="message" rows="3" placeholder="Additional details about your cleaning needs"></textarea>
+                            </div>
+                            <button type="submit" class="w-full px-6 py-3 bg-green-500 text-white rounded-lg font-medium hover:bg-green-600 transition">Get Free Quote</button>
+                        </form>
+                    </div>
+                    
+                    <div class="flex flex-col">
+                        <div class="bg-white/10 backdrop-blur-sm rounded-lg p-8 mb-8">
+                            <h3 class="text-xl font-bold mb-4">Our Office</h3>
+                            <address class="not-italic mb-4">
+                                <p>123 Clean Street</p>
+                                <p>Freshville, FC 12345</p>
+                            </address>
+                            <div class="space-y-2">
+                                <p><strong>Phone:</strong> (123) 456-7890</p>
+                                <p><strong>Email:</strong> hello@sparkleclean.com</p>
+                                <p><strong>Hours:</strong> Mon-Fri: 8AM-6PM</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white/10 backdrop-blur-sm rounded-lg p-8">
+                            <h3 class="text-xl font-bold mb-4">Why Book With Us</h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Instant online booking available
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    100% satisfaction guarantee
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Fully insured and bonded
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Same-day service available
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Frequently Asked Questions</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Find answers to common questions about our cleaning services.</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-white rounded-lg shadow-sm mb-4 overflow-hidden">
+                    <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center font-semibold text-gray-800 hover:bg-gray-50 transition">
+                        <span>What areas do you serve?</span>
+                        <svg class="w-5 h-5 text-green-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-answer px-6 pb-4 text-gray-600 hidden">
+                        We currently serve all major neighborhoods in Freshville and surrounding areas including Cleantown, Shineborough, and Gleaming City. Contact us to confirm if we cover your location.
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-sm mb-4 overflow-hidden">
+                    <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center font-semibold text-gray-800 hover:bg-gray-50 transition">
+                        <span>What cleaning products do you use?</span>
+                        <svg class="w-5 h-5 text-green-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-answer px-6 pb-4 text-gray-600 hidden">
+                        We exclusively use eco-friendly, non-toxic cleaning products from trusted brands that are safe for children, pets, and the environment. Our products are hypoallergenic and free from harsh chemicals while still being highly effective.
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-sm mb-4 overflow-hidden">
+                    <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center font-semibold text-gray-800 hover:bg-gray-50 transition">
+                        <span>Do I need to be home during cleaning?</span>
+                        <svg class="w-5 h-5 text-green-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-answer px-6 pb-4 text-gray-600 hidden">
+                        Not at all! Many of our clients provide us with keys or door codes so we can clean while they're away. Our cleaners are fully vetted, background-checked professionals who you can trust in your home. We also offer lockout service if you prefer to be home.
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-sm mb-4 overflow-hidden">
+                    <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center font-semibold text-gray-800 hover:bg-gray-50 transition">
+                        <span>How does your pricing work?</span>
+                        <svg class="w-5 h-5 text-green-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-answer px-6 pb-4 text-gray-600 hidden">
+                        Our pricing is based on the size of your space, the type of cleaning needed, and frequency of service. We offer flat-rate pricing on our standard packages with no hidden fees. For custom jobs, we provide free in-home estimates to ensure accurate pricing before any work begins.
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-sm mb-4 overflow-hidden">
+                    <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center font-semibold text-gray-800 hover:bg-gray-
